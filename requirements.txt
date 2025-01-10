@@ -1,0 +1,2 @@
+curses-windows==2.2.0; platform_system == "Windows"
+windows-curses==2.3.1; platform_system == "Windows"

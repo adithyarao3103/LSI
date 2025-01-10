@@ -1,5 +1,5 @@
 function lsi {
-    $result = lsi.py
+    $result = python '/path/to/lsi.py'
     if ($result -like "CHANGE_DIR:*") {
         $newPath = $result -replace "CHANGE_DIR:", ""
         Set-Location $newPath

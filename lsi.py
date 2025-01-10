@@ -138,11 +138,15 @@ def interactive_ls(stdscr):
             entry_str = entry[:max_x-4] + "..." if len(entry) > max_x-4 else entry
             
             is_dir = (current_path / entry).is_dir()
+
+            #Uncomment one of the two if nerdfont is not installed
             # prefix = "📁 " if is_dir else "📄 "
             # prefix = "■ " if is_dir else "□ "
-            # prefix = "\uea83 " if is_dir else "\uea7b "
+
+            #Comment the two lines if nerdfont is not installed
             entry_path = current_path / entry
             prefix = f"{get_file_icon(entry_path)} "
+
             display_str = f"{prefix}{entry_str}"
             
             if idx == current_pos:
