@@ -63,7 +63,6 @@ def get_file_icon(entry_path):
     return filetype_icons[filetype]
 
 def rgb_to_curses(r, g, b):
-    # Convert RGB (0-255) to curses color range (0-1000)
     return (r * 1000 // 255, g * 1000 // 255, b * 1000 // 255)
 
 def hex_to_curses(hex_color):
@@ -71,15 +70,12 @@ def hex_to_curses(hex_color):
     Convert hex color code to curses RGB values (0-1000 range)
     Example: '#FF5733' -> (1000, 341, 200)
     """
-    # Remove '#' if present
     hex_color = hex_color.lstrip('#')
     
-    # Convert hex to RGB (0-255)
     r = int(hex_color[0:2], 16)
     g = int(hex_color[2:4], 16)
     b = int(hex_color[4:6], 16)
     
-    # Convert to curses range (0-1000)
     r_curses = int((r / 255) * 1000)
     g_curses = int((g / 255) * 1000)
     b_curses = int((b / 255) * 1000)
@@ -102,8 +98,8 @@ def interactive_ls(stdscr):
     curses.start_color()
     
     # Define custom colors
-    curses.init_color(10, *hex_to_curses('#2234a8'))  # Light yellow
-    curses.init_color(11, *rgb_to_curses(255, 255, 255))    # Warm brown
+    curses.init_color(10, *hex_to_curses('#2234a8'))  
+    curses.init_color(11, *rgb_to_curses(255, 255, 255))  
     
     curses.init_pair(1, 10, curses.COLOR_BLACK)  # Directories
     curses.init_pair(2, 11, curses.COLOR_BLACK)  # Files
